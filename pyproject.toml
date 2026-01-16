@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "humanbrowse-cdp"
+version = "0.1.0"
+description = "Local FastAPI service for bounded agentic browsing via CDP"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Codex" }]
+license = { text = "MIT" }
+keywords = ["fastapi", "playwright", "cdp"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "pydantic",
+  "PyYAML",
+  "playwright",
+  "httpx",
+  "python-dateutil",
+  "typing-extensions",
+  "readability-lxml",
+  "lxml",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest",
+]
+
+[project.scripts]
+webctl = "webctl.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]

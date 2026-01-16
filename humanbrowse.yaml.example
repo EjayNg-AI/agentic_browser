@@ -1,0 +1,17 @@
+cdp_port: 9222
+cdp_allow_nat: false
+cdp_timeout_ms: 5000
+slow_mo_ms: 0
+
+max_steps_per_run: 50
+max_total_runtime_s: 120
+min_delay_ms_between_actions: 250
+max_extract_chars: 20000
+capture_html_snapshot: false
+
+runs_dir: runs
+
+policy:
+  mode: denylist
+  domains:
+    - example.com

@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+pydantic
+PyYAML
+playwright
+httpx
+python-dateutil
+typing-extensions
+readability-lxml
+lxml
+pytest
