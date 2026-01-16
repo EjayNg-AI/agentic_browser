@@ -61,8 +61,15 @@ Run from Windows PowerShell (or from WSL invoking `powershell.exe`):
 From WSL, you can invoke Windows PowerShell like this:
 
 ```bash
-SCRIPT_WIN="$(wslpath -w \"$(pwd)/windows/Start-HumanChrome.ps1\")"
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$SCRIPT_WIN" -Port 9222 -UserDataDir "$env:LOCALAPPDATA\\HumanBrowseProfile"
+SCRIPT_WIN="$(wslpath -w "$(pwd)/windows/Start-HumanChrome.ps1")"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$SCRIPT_WIN" -Port 9222 -UserDataDir '$env:LOCALAPPDATA\HumanBrowseProfile'
+```
+
+Known-good example (explicit Chrome path):
+
+```bash
+SCRIPT_WIN="$(wslpath -w "$(pwd)/windows/Start-HumanChrome.ps1")"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$SCRIPT_WIN" -Port 9222 -ChromePath "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
 ```
 
 You should see a check URL like `http://127.0.0.1:9222/json/version`.
